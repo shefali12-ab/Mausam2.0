@@ -7,7 +7,7 @@ const Search =()=>{
 return (
     <>
      <div className="container  grid grid-cols-30/90    h-screen"> 
-      <Searchbox/>
+      <Searchbox />
      <Infopage/>
     
      </div>

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import axios from "axios"
 
 const Card =( props)=>{
-  const DAY_FORMATTER = new Intl.DateTimeFormat(undefined, { weekday: 'long', year: 'numeric', month: 'long',day: 'numeric'})
+  const DAY_FORMATTER = new Intl.DateTimeFormat(undefined, { weekday: 'long', month: 'long',day: 'numeric'})
   const  time1= (props.time)*1000
   const dateval=  DAY_FORMATTER.format(time1)
   // console.log(dateval)
@@ -13,6 +13,7 @@ return<>
 <div className="bg-midnight w-[8rem] h-[10rem] text-white inline-block m-[1rem]">
   
   <h1>  {dateval}</h1>
+  <img className="h-[5rem]" src={props.imgval}></img>
   <p>{props.max} <span>{props.min}</span></p>
 </div>
 
