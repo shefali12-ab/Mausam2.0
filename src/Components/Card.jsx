@@ -10,11 +10,13 @@ const Card =( props)=>{
   // console.log(dateval)
 
 return<>
-<div className="bg-midnight w-[8rem] h-[10rem] text-white inline-block m-[1rem]">
+<div className="p-4 bg-midnight w-[10rem] h-[12rem] text-white inline-block m-[1rem] font-raleway ">
   
-  <h1>  {dateval}</h1>
-  <img className="h-[5rem]" src={props.imgval}></img>
-  <p>{props.max} <span>{props.min}</span></p>
+  <h1 className="text-sm">  {dateval}</h1>
+  <img className="h-[4rem] mt-[1rem] mx-[auto]" src={props.imgval}></img>
+  {/* <p><span > {props.max}</span> <span className="place-items-end">{props.min}</span></p> */}
+  <p className="inline-block  mt-[2rem] mr-[2.1rem] text-sm"> {props.max} &deg;C </p>
+  <p className=" inline-block mt-[2rem] text-sm text-grey"> {props.min} &deg;C </p>
 </div>
 
 </>

@@ -34,6 +34,10 @@ export default {
         'my': "url('./src/Images/Cloud-background.png')",
         
        },
+       fontFamily: {
+        
+        'raleway':['Raleway', 'sans-serif']
+      },
     },
   }
 ,
