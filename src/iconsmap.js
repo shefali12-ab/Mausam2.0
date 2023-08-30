@@ -5,13 +5,19 @@ import  HeavyRain from "./Images/HeavyRain.png"
 import  hail from "./Images/Sleet.png"
 import  LightRain from "./Images/LightRain.png"
 import Thunderstorm from "./Images/Thunderstorm.png"
+import LightCloud from "./Images/LightCloud.png"
+import HeavyCloud from "./Images/HeavyCloud.png"
 const icons=(code)=>{
 
-    if(code == 0 || code ==1 || code ==2 || code==3 ){
+    if(code == 0){
         return clearsky
 //clearsky
     }
-    if(code==45 || code ==48){
+    if( code ==1 || code ==2 || code ==3)
+    {
+      return LightCloud
+    }
+    if( code ==1 || code==45 || code ==48){
         //hail
         return hail;
     }

@@ -14,6 +14,7 @@ return<>
   
   <h1 className="text-sm">  {dateval}</h1>
   <img className="h-[4rem] mt-[1rem] mx-[auto]" src={props.imgval}></img>
+ { console.log(props.imgval)}
   {/* <p><span > {props.max}</span> <span className="place-items-end">{props.min}</span></p> */}
   <p className="inline-block  mt-[2rem] mr-[2.1rem] text-sm"> {props.max} &deg;C </p>
   <p className=" inline-block mt-[2rem] text-sm text-grey"> {props.min} &deg;C </p>

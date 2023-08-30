@@ -4,6 +4,7 @@ import Mainpage from './Components/Mainpage'
 import "./location"
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
+import './Cityname'
 import './App.css'
 
 function App() {

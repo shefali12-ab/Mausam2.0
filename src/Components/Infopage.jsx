@@ -6,11 +6,11 @@ import Card3 from "./Card3"
 import axios from "axios";
 import getCoordinates from "../location";
 import icons from "../iconsmap";
-
+import "../Cityname"
 
 const Infopage =()=>{
-  const [coords, setCoords] = useState({ latitude: -1, longitude: -1 });
-
+  const [coords, setCoords] = useState({ latitude: -1, longitude: -1});
+ 
   async function getLocationData() {
     const locationCoords = await getCoordinates();
     setCoords(locationCoords);
@@ -41,7 +41,7 @@ const Infopage =()=>{
  */}
 
     { myData.daily ? <Card time={myData.daily.time[1]} max={myData.daily.temperature_2m_max[1]} min={myData.daily.temperature_2m_min[1]} imgval={icons(myData.daily.weathercode[1])}/> : "Loading data..."}
-    
+    {console.log("this is mydata",myData)};
    {myData.daily && <Card time={myData.daily.time[2]} max={myData.daily.temperature_2m_max[2]} min={myData.daily.temperature_2m_min[2]} imgval={icons(myData.daily.weathercode[2])}/>}
    {myData.daily && <Card time={myData.daily.time[3]} max={myData.daily.temperature_2m_max[3]} min={myData.daily.temperature_2m_min[3]}  imgval={icons(myData.daily.weathercode[3])}/>}
   

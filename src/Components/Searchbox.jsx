@@ -7,6 +7,7 @@ import Button from "./Button"
 import icons from "../iconsmap"
 import "../location"
 //import { getWeather } from "../Weather";
+import {weather} from "../Cityname"
 import getCoordinates from "../location";
 const Searchbox=(props)=>{
  
@@ -30,7 +31,11 @@ const Searchbox=(props)=>{
     });
     getLocationData();
   }, [])
-
+ console.log(coords.latitude)
+ console.log(coords.longitude)
+ console.log(weather)
+ weather.feathcityname(coords.latitude,coords.longitude)
+// weather?.feathcityname(coords.latitude,corrds.longitude);
    const DAY_FORMATTER =  new Intl.DateTimeFormat(undefined, { weekday: 'long', month: 'long',day: 'numeric'})
    var creation_time= myData?.current_weather?.time
    if(creation_time){
@@ -65,7 +70,7 @@ const Searchbox=(props)=>{
         </div>
         <div>
             {/* <icon>location icon</icon> */}
-            <p></p>
+            <p className="cityname"></p>
         </div>
         
      </div>
