@@ -7,11 +7,12 @@ let weather ={
     },
     displaycity: function(data){
         const {name}= data;
-        console.log(name);
-        document.querySelector(".cityname").innerHTML=name
+       
+        // document.querySelector(".cityname").innerHTML=name
     }
 }
 export  {weather};
+//448886709b774cef82447827adbe7597 --geocoding apikey
 // weather.feathcityname(coords.latitude,coords.longitude);
 
 

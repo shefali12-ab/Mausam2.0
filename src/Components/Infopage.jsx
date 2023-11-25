@@ -34,14 +34,14 @@ const Infopage =()=>{
     return(<>
     
     <div className="bg-dark"> 
-    <button className=" bg-white  h-[2rem] w-[2rem] p-1 rounded-full top-3 m-5 absolute right-[10rem]"> </button>
-    <button className=" bg-grey  h-[2rem] w-[2rem] p-1 rounded-full top-3 m-5 absolute right-[6rem]"> </button>
+    <button className=" bg-white  h-[2rem] w-[2rem] p-1 rounded-full top-3 m-5 absolute right-[10rem]"> F</button>
+    <button className=" bg-grey  h-[2rem] w-[2rem] p-1 rounded-full top-3 m-5 absolute right-[6rem]"> C</button>
     <div className=" mt-[5rem] ml-[10rem]"> 
       {/* {coords.latitude !== -1 && coords.longitude !== -1 && <h1 className="text-white">{`longitude: ${coords.longitude}, lattitude: ${coords.latitude}`}</h1>}
  */}
 
-    { myData.daily ? <Card time={myData.daily.time[1]} max={myData.daily.temperature_2m_max[1]} min={myData.daily.temperature_2m_min[1]} imgval={icons(myData.daily.weathercode[1])}/> : "Loading data..."}
-    {console.log("this is mydata",myData)};
+    { myData.daily ? <Card className="card1" time={myData.daily.time[1]} max={myData.daily.temperature_2m_max[1]} min={myData.daily.temperature_2m_min[1]} imgval={icons(myData.daily.weathercode[1])}/> : "Loading data..."}
+  
    {myData.daily && <Card time={myData.daily.time[2]} max={myData.daily.temperature_2m_max[2]} min={myData.daily.temperature_2m_min[2]} imgval={icons(myData.daily.weathercode[2])}/>}
    {myData.daily && <Card time={myData.daily.time[3]} max={myData.daily.temperature_2m_max[3]} min={myData.daily.temperature_2m_min[3]}  imgval={icons(myData.daily.weathercode[3])}/>}
   
@@ -50,18 +50,21 @@ const Infopage =()=>{
    {myData.daily && <Card time={myData.daily.time[5]} max={myData.daily.temperature_2m_max[5]} min={myData.daily.temperature_2m_min[5]}  imgval={icons(myData.daily.weathercode[5])}/>}
   
   
-  {/* for(let i=0;i!=6;i++){
-    <Card time={myData.daily.time[i]} max={myData.daily.temperature_2m_max[i]} min={myData.daily.temperature_2m_min[i]}/>
-  }  */}
-       
      
     </div>
-   
+    <div className="ml-[10rem]">
     <h1 className="text-white mt-[3rem] ml-[11rem] font-raleway font-bold text-2xl">Today's Highlight </h1>
- {myData.current_weather && <Card2 text ={"Wind Speed"} unit={"km/h"}val={myData.current_weather.windspeed}/>}
- {myData.current_weather && <Card2  text={"Humidity"} unit={"%"}val={myData.hourly.relativehumidity_2m[0]}/>}
-   { myData.current_weather && <Card3 text={"Visibility"} unit={"m"}val={myData.hourly.visibility[0]}/>}
-   { myData.current_weather && <Card3 text={"Sea Level Pressure"} unit={"hpa"} val={myData.hourly.surface_pressure[0]}/>}
+  
+
+    {myData.current_weather && <Card2 text ={"Wind Speed"} unit={"km/h"}val={myData.current_weather.windspeed}/>}
+    {myData.current_weather && <Card2  text={"Humidity"} unit={"%"}val={myData.hourly.relativehumidity_2m[0]}/>}
+    { myData.current_weather && <Card3 text={"Visibility"} unit={"m"}val={myData.hourly.visibility[0]}/>}
+    { myData.current_weather && <Card3 text={"Sea Level Pressure"} unit={"hpa"} val={myData.hourly.surface_pressure[0]}/>}
+  
+
+   </div>
+   
+ 
     
     </div>
     

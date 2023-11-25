@@ -2,9 +2,12 @@ import { useEffect, useState } from 'react'
 import Mainpage from './Components/Mainpage'
 //import {getWeather} from './Weather'
 import "./location"
+import Searchbox from './Components/Searchbox'
+import Infopage from './Components/Infopage'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './Cityname'
+import './Getcoord'
 import './App.css'
 
 function App() {
@@ -12,7 +15,13 @@ function App() {
 
   return (
     <>
-    <Mainpage/>
+    <div className=""> 
+      <Searchbox />
+     {/* <Infopage/> */}
+    
+     </div>
+
+
    
     </>
   )
