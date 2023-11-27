@@ -1,17 +1,17 @@
-import "./Components/Searchbox"
-let weather ={
-   // apikey:'48999c9f0f622b0accdd3b5b978bf1bc',
-    feathcityname: function(lat,long){
-        fetch("https://api.openweathermap.org/data/2.5/weather?lat="+`${lat}`+"&lon="+`${long}`+"&appid=48999c9f0f622b0accdd3b5b978bf1bc").then((response)=>response.json()).then((data)=>this.displaycity(data));
+// import "./Components/Searchbox"
+// let weather ={
+//    // apikey:'48999c9f0f622b0accdd3b5b978bf1bc',
+//     feathcityname: function(lat,long){
+//         fetch("https://api.openweathermap.org/data/2.5/weather?lat="+`${lat}`+"&lon="+`${long}`+"&appid=48999c9f0f622b0accdd3b5b978bf1bc").then((response)=>response.json()).then((data)=>this.displaycity(data));
         
-    },
-    displaycity: function(data){
-        const {name}= data;
+//     },
+//     displaycity: function(data){
+//         const {name}= data;
        
-        // document.querySelector(".cityname").innerHTML=name
-    }
-}
-export  {weather};
+//         // document.querySelector(".cityname").innerHTML=name
+//     }
+// }
+// export  {weather};
 //448886709b774cef82447827adbe7597 --geocoding apikey
 // weather.feathcityname(coords.latitude,coords.longitude);
 
