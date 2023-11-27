@@ -1,31 +1,30 @@
 import react from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { ReactDOM } from "react";
-import shower from "../Images/Shower.png";
-// import Button from "./Button";
+// import { ReactDOM } from "react";
+// import shower from "../Images/Shower.png";
+
 import icons from "../iconsmap";
-import "../location";
+
 import Card from "./Card";
 import Card2 from "./Card2";
-import Card3 from "./Card3";
-//import { getWeather } from "../Weather";
-// import { weather } from "../Cityname";
-// import getCoordinates from "../location";
-// import { coordinate } from "../Getcoord";
+
 
 
 const Home = (props) => {
- 
-   async function featchcoords(cityname){
-      
+  const [name1 , setname]= useState("") //for setting name of city in search box, when button is clicked
+  const [myData, setMyData] = useState([]); // for updating the users data
+  const [coords, setCoords] = useState({ latitude: -1, longitude: -1 });//for updating the coords 
+   async function fetchcoords(cityname){
+      //this function is for making api call on the basis of city name entered by user in input tag, for getting the coordinate value 
     const data= await fetch("https://api.opencagedata.com/geocode/v1/json?key=448886709b774cef82447827adbe7597&q="+`${cityname}`);
     const f_data= await data.json();
     return f_data.results[0].geometry
    }
  
-  const [coords, setCoords] = useState({ latitude: -1, longitude: -1 });
+
   async function getCoordinates() {
+    // this function is for getting the coordinates of users current-location.
     return await new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(resolve, reject);
     }).then((position) => {
@@ -39,7 +38,7 @@ const Home = (props) => {
     const locationCoords = await getCoordinates();
     setCoords(locationCoords);
   }
-  const [myData, setMyData] = useState([]);
+
   useEffect(() => {
     axios
       .get(
@@ -55,11 +54,7 @@ const Home = (props) => {
       });
     getLocationData();
   }, []);
-  //  console.log("This coords lat",coords.latitude)
-  //  console.log("This is coords long",coords.longitude)
-  //  console.log(weather)
-  // weather.feathcityname(coords.latitude, coords.longitude);
-  // weather?.feathcityname(coords.latitude,corrds.longitude);
+
   const DAY_FORMATTER = new Intl.DateTimeFormat(undefined, {
     weekday: "long",
     month: "long",
@@ -73,7 +68,8 @@ const Home = (props) => {
   async function Getcity() {
 
     const val = document.getElementById("searchvalue").value;
-    const data = await featchcoords(val); //here val is the value inputeed by user in serach bar and i am passing it in featchcoords function to get the coordinate value of the city so that i can pass this coordinate value in api call
+    const data = await fetchcoords(val); //here val is the value inputeed by user in serach bar and i am passing it in featchcoords function to get the coordinate value of the city so that i can pass this coordinate value in api call
+   //again making a api call on basis of city name entered by user and updating the weather information on the basis of it
     const res = await axios.get(
       "https://api.open-meteo.com/v1/forecast?latitude=" +
         `${data.lat}` +
@@ -82,19 +78,15 @@ const Home = (props) => {
         "&hourly=relativehumidity_2m,showers,snowfall,pressure_msl,surface_pressure,visibility&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,sunrise,sunset,uv_index_max,rain_sum,showers_sum,snowfall_sum&current_weather=true&timeformat=unixtime&timezone=GMT"
     );
     setMyData(res.data);
-    document.querySelector(".cityname").innerHTML = val;
-    console.log(
-      "THis is ",
-      document.querySelector(".cityname").innerHTML.value
-    );
+ 
+ 
+    setname(val[0].toUpperCase()+val.slice(1).toLowerCase()) 
+   
    
   }
  
-  const [name1 , setname]= useState("")
-  async function getupdatedname(){
-    const n = await Getcity();
-    setname(n)
-  }
+  
+ 
   return (
     
     <>
@@ -112,14 +104,13 @@ const Home = (props) => {
 
           <button
             className=" bg-grey  h-[2rem] w-[2rem] p-1 rounded-full top-3 "
-            // onClick={Getcity}
+            onClick={Getcity}
           >
            
             S
           </button>
         </div>
-          {/* <img className=" bg-my "  ></img> */}
-          {/* <Button/> */}
+         
           {myData.current_weather && (
             <img
               className="mx-auto "
@@ -224,14 +215,14 @@ const Home = (props) => {
               />
             )}
             {myData.current_weather && (
-              <Card3
+              <Card2
                 text={"Visibility"}
                 unit={"m"}
                 val={myData.hourly.visibility[0]}
               />
             )}
             {myData.current_weather && (
-              <Card3
+              <Card2
                 text={"Sea Level Pressure"}
                 unit={"hpa"}
                 val={myData.hourly.surface_pressure[0]}
