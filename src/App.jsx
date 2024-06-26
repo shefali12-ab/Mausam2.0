@@ -67,11 +67,14 @@ function App() {
     setKeys(dayKeys)
    
   }
- //console.log(forecastData)
+//  console.log(forecastData)
  
 
   useEffect(  ()=>{
-    getWeather(name).then((response)=>changeWeather(response.data))
+    getWeather(name).then((response)=>changeWeather(response.data)).catch((error)=>{
+      console.log("Failed to get data",error)
+      alert("Enter correct city name")
+    })
     getForecast(name).then((response)=>changeForecast(response.data))
   
   
@@ -79,7 +82,7 @@ function App() {
   //console.log("This is weather data",weatherData)
   return (
     <>
-    <div className=" flex flex-col sm:flex-row h-screen"> 
+    <div className=" flex flex-col sm:flex-row   h-screen sm:h-dvh"> 
       <PresentWeather currWeatherCode={weatherData.code} currTemp={weatherData.temp} currDate={weatherData.dateFormat} name={weatherData.Cityname} onCityChange={handleCityChange} />
       <InfoWeather arrData={forecastData} index={keys} weatherData={weatherData}/>
     

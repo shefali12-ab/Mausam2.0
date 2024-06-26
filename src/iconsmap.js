@@ -37,6 +37,7 @@ const icons=(code)=>{
       //   //shower
       //   return shower
       // }
+      if(code=='Rain') return HeavyRain
       if(code== 'Thunderstorm'){
         //thunder storm
         return Thunderstorm

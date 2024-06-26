@@ -9,24 +9,36 @@ const PresentWeather = ({currWeatherCode,currTemp,currDate,name,onCityChange}) =
 
      //const [cityName , setcityName]= useState("") //for setting name of city in search box, when button is clicked
     
+    
     const SubmitSearch = ()=>{
       //console.log("submit")
       const input = document.getElementById("searchvalue").value
       onCityChange(input)
       setcityName(input)
     }
-
+    const handleKeyDown = (event) => {
+      if (event.key === 'Enter') {
+        // Call your function here, e.g., handleSearch()
+        handleSearch();
+      }
+    };
+    const handleSearch = () => {
+    
+      // console.log('Performing search for:');
+      SubmitSearch()
+      // Example: You might call an API, update state, etc.
+    };
    
 
   return (
-    <div className="bg-midnight flex  flex-col p-9 items-center ">
+    <div className="bg-midnight flex  flex-col p-9 justify-center items-center ">
     <div className="flex items-center">
     <input
         className="bg-grey text-white p-2 m-16 w-[12rem] search-box "
         type="text"
         name="Search"
         id="searchvalue"
-        
+        onKeyDown={handleKeyDown}
        
         placeholder="Search for places"
        
