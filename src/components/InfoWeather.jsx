@@ -35,7 +35,7 @@ const InfoWeather = ({ arrData, index, weatherData }) => {
         }
       </div>
       <div className=" w-[80rem] ml-[5rem] flex flex-col ">
-        <h1 className="text-white mt-[3rem] ml-[5rem] font-raleway font-bold text-2xl">
+        <h1 className="text-white mt-[3rem] sm:ml-[5rem] font-raleway font-bold text-2xl">
           Today's Highlight
         </h1>
        
