@@ -2,7 +2,7 @@
 
 This repositry contains Mausam a weather App  build using ReactJS, Javscript and  TailwindCSS.
 
-##Functionality
+## Functionality
 
 The app contains a single page with a Searchbar by default it is showing the current weather details and of next five days of Delhi. 
 
